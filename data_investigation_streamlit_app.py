@@ -11,11 +11,8 @@ import datetime as dt
 #Setting the web app page name (optional)
 st.set_page_config(page_title='Data Investigation | Streamlit App', page_icon=None, layout="wide")
 
-#Uploading branding
-st.sidebar.image('/Users/gtbandara/Documents/Python/Misc Inputs/Branding.png',width=250,output_format='PNG')
-
 #Setting markdown
-st.markdown("<h1 style='text-align: center;'>Data Investigation Web App</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Data Investigation Web App by NivAnalytics</h1>", unsafe_allow_html=True)
 
 #Creating dynamic file upload option in sidebar
 uploaded_file = st.sidebar.file_uploader("*Upload Excel file here*")
@@ -27,7 +24,7 @@ if uploaded_file is not None:
     sh = st.sidebar.selectbox("*Which sheet name in the file should be read?*",pd.ExcelFile(file_path).sheet_names)
 
     #User prompt to define row with column names if they aren't in the header row in the uploaded file
-    h = st.sidebar.number_input("*Which row contains the column names?*",0,100,None)
+    h = st.sidebar.number_input("*Which row contains the column names?*",0,100)
 
     #Reading the data 
     data = pd.read_excel(file_path,header=h,sheet_name=sh)
