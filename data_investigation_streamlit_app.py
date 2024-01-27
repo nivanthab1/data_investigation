@@ -40,8 +40,9 @@ if uploaded_file is not None:
     #Converting column names to title case
     data.columns = data.columns.str.title()
 
-    #Filling nulls in object columns in file selected with blanks
+    #Turning object columns to string and filling nulls with blanks
     for col in data.select_dtypes('object'):
+        data[col] = data[col].astype(str)
         data[col] = data[col].fillna('')
 
     #Horizontal divider
