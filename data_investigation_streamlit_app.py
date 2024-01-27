@@ -3,6 +3,7 @@
 
 #Import the necessary packages
 import streamlit as st
+import openpyxl
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
