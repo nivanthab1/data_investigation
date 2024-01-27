@@ -40,11 +40,6 @@ if uploaded_file is not None:
     #Converting column names to title case
     data.columns = data.columns.str.title()
 
-    #Turning object columns to string and filling nulls with blanks
-    for col in data.select_dtypes('object'):
-        data[col] = data[col].astype(str)
-        data[col] = data[col].fillna('')
-
     #Horizontal divider
     st.sidebar.divider()
 #=====================================================================================================
@@ -77,7 +72,7 @@ if uploaded_file is not None:
         ss = pd.DataFrame(data.describe(include='all').round(2).fillna(''))
         #Adding null counts to summary statistics
         nc = pd.DataFrame(data.isnull().sum()).rename(columns={0: 'count_null'}).T
-        ss = pd.concat([ss,nc]).sort_index()
+        ss = pd.concat([nc,ss]).sort_index().copy()
         st.dataframe(ss, use_container_width=True)
 
     #Showing value counts of object fields
