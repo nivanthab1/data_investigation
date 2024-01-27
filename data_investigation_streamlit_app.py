@@ -104,7 +104,7 @@ if uploaded_file is not None:
         graph_options = st.sidebar.selectbox( "*Select chart type*", options=['Bar Chart','Line Chart'])
 
         #Assigning color code
-        clr = '#057A27'
+        clr = 'r'
 
         #Option for bar chart
         if 'Bar Chart' in graph_options:
