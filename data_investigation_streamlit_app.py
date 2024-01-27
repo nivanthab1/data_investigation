@@ -172,7 +172,7 @@ if uploaded_file is not None:
                     rot = 45
                 
                 elif grouping_sel == 'Year-Month':
-                    data[feature] = pd.to_datetime(data[feature].dt.year.astype(str) + '-' + data[feature].dt.month.astype(str) + '-01')
+                    data[feature] = pd.to_datetime(data[feature].dt.year.astype(int).astype(str) + '-' + data[feature].dt.month.astype(int).astype(str) + '-01')
                     rot = 90
 
             else:
