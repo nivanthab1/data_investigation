@@ -1,5 +1,6 @@
 matplotlib==3.7.2
 openpyxl==3.0.10
 pandas==2.0.2
+pygwalker==0.4.4
 seaborn==0.13.2
 streamlit==1.30.0
