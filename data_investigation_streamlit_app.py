@@ -100,7 +100,7 @@ if uploaded_file is not None:
 
     if vis_select:
 
-        st.write( '### 3. Data Visualization ')
+        st.write( '### 3. Visual Insights from Data ')
 
         #Creating mutiselect tab in the left sidebar
         graph_options = st.sidebar.selectbox( "*Select chart type*", options=['Bar Chart','Line Chart'])
