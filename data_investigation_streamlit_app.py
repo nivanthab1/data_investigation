@@ -8,6 +8,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import datetime as dt
+import sys
 
 #Setting the web app page name (optional)
 st.set_page_config(page_title='Data Investigation | Streamlit App', page_icon=None, layout="wide")
@@ -173,8 +174,12 @@ if uploaded_file is not None:
                     rot = 45
                 
                 elif grouping_sel == 'Year-Month':
-                    data[feature] = pd.to_datetime(data[feature].dt.year.astype(int).astype(str) + '-' + data[feature].dt.month.astype(int).astype(str) + '-01')
-                    rot = 90
+                    try:
+                        data[feature] = pd.to_datetime(data[feature].dt.year.astype(int).astype(str) + '-' + data[feature].dt.month.astype(int).astype(str) + '-01')
+                        rot = 90
+                    except Exception as e:
+                        st.info("Grouping cannot be performed as the date/time field contains nulls")
+                        sys.exit()
 
             else:
                 grouping_sel = feature
