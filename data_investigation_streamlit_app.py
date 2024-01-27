@@ -28,7 +28,7 @@ if uploaded_file is not None:
     h = st.sidebar.number_input("*Which row contains the column names?*",0,100)
 
     #Reading the data 
-    data = pd.read_excel(file_path,header=h,sheet_name=sh)
+    data = pd.read_excel(file_path,header=h,sheet_name=sh,engine='openpyxl')
 #=======================================================================
 ## 0.2 Pre-processing datasets
 
