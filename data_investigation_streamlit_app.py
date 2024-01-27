@@ -74,7 +74,11 @@ if uploaded_file is not None:
 
     #Showing summary statistics
     elif selected == 'Summary Statistics':
-        st.dataframe(data.describe(include='all').round(2).fillna(''), use_container_width=True)
+        ss = pd.DataFrame(data.describe(include='all').round(2).fillna(''))
+        #Adding null counts to summary statistics
+        nc = pd.DataFrame(data.isnull().sum()).rename(columns={0: 'count_null'}).T
+        ss = pd.concat([ss,nc]).sort_index()
+        st.dataframe(ss, use_container_width=True)
 
     #Showing value counts of object fields
     elif selected == 'Value Counts of Fields':
