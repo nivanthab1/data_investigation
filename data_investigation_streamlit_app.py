@@ -49,7 +49,7 @@ if uploaded_file is not None:
     st.sidebar.divider()
 #=====================================================================================================
 ## 1. Overview of the data
-    st.write( '### 1. Overview of the Data ')
+    st.write( '### 1. Comprehensive View of Dataset ')
 
     #View the dataframe in streamlit
     st.dataframe(data, use_container_width=True)
@@ -58,14 +58,14 @@ if uploaded_file is not None:
     st.divider()
 #=====================================================================================================
 ## 2. Understanding the data
-    st.write( '### 2. Understanding the Data ')
+    st.write( '### 2. High-Level Dataset Overview ')
 
     #Creating radio button and sidebar simulataneously
     selected = st.sidebar.radio( "**B) What do you want to know about the data?**", 
-                                ["Field Descriptions",
+                                ["Data Dimensions",
+                                 "Field Descriptions",
                                 "Summary Statistics", 
-                                "Value Counts of Fields",
-                                "Data Shape"])
+                                "Value Counts of Fields"])
 
     #Showing field types
     if selected == 'Field Descriptions':
@@ -85,7 +85,7 @@ if uploaded_file is not None:
 
     #Showing the shape of the dataframe
     else:
-        st.write('###### The shape of the data is :',data.shape)
+        st.write('###### The data has the dimensions :',data.shape)
 
     #Horizontal divider
     st.divider()
@@ -94,12 +94,13 @@ if uploaded_file is not None:
     st.sidebar.divider()
 #=====================================================================================================
 ## 3. Visualisation
-    st.write( '### 3. Data Visualization ')
 
     #Selecting whether visualisation is required
     vis_select = st.sidebar.checkbox("**C) Is visualisation required for this dataset?**")
 
     if vis_select:
+
+        st.write( '### 3. Data Visualization ')
 
         #Creating mutiselect tab in the left sidebar
         graph_options = st.sidebar.selectbox( "*Select chart type*", options=['Bar Chart','Line Chart'])
