@@ -30,20 +30,36 @@ st.write('<style>' + custom_css + '</style>', unsafe_allow_html=True)
 #Setting markdown
 st.markdown("<h1 style='text-align: center;'>Data Investigation Web App by NivAnalytics</h1>", unsafe_allow_html=True)
 
+#User prompt to select file type
+ft = st.sidebar.selectbox("*What is the file type?*",["Excel", "csv"])
+
 #Creating dynamic file upload option in sidebar
-uploaded_file = st.sidebar.file_uploader("*Upload Excel file here*")
+uploaded_file = st.sidebar.file_uploader("*Upload file here*")
 
 if uploaded_file is not None:
     file_path = uploaded_file
-  
-    #User prompt to select sheet name in uploaded file
-    sh = st.sidebar.selectbox("*Which sheet name in the file should be read?*",pd.ExcelFile(file_path).sheet_names)
 
-    #User prompt to define row with column names if they aren't in the header row in the uploaded file
-    h = st.sidebar.number_input("*Which row contains the column names?*",0,100)
+    if ft == 'Excel':
+        try:
+            #User prompt to select sheet name in uploaded Excel
+            sh = st.sidebar.selectbox("*Which sheet name in the file should be read?*",pd.ExcelFile(file_path).sheet_names)
 
-    #Reading the data 
-    data = pd.read_excel(file_path,header=h,sheet_name=sh,engine='openpyxl')
+            #User prompt to define row with column names if they aren't in the header row in the uploaded Excel
+            h = st.sidebar.number_input("*Which row contains the column names?*",0,100)
+
+            #Reading the excel file
+            data = pd.read_excel(file_path,header=h,sheet_name=sh,engine='openpyxl')
+        except:
+            st.info("File is not recognised as an Excel file.")
+            sys.exit()
+    
+    elif ft == 'csv':
+        try:
+            #Reading the csv file
+            data = pd.read_csv(file_path)
+        except:
+            st.info("File is not recognised as a csv file.")
+            sys.exit()
 #=======================================================================
 ## 0.2 Pre-processing datasets
 
@@ -59,16 +75,21 @@ if uploaded_file is not None:
     st.sidebar.divider()
 #=====================================================================================================
 ## 1. Overview of the data
-    st.write( '### 1. Comprehensive View of Dataset ')
+    st.write( '### 1. Dataset Preview ')
 
-    #View the dataframe in streamlit
-    st.dataframe(data, use_container_width=True)
+    try:
+      #View the dataframe in streamlit
+      st.dataframe(data, use_container_width=True)
+
+    except:
+      st.info("The file wasn't read properly. Please ensure that the input parameters are correctly defined.")
+      sys.exit()
 
     #Horizontal divider
     st.divider()
 #=====================================================================================================
 ## 2. Understanding the data
-    st.write( '### 2. High-Level Dataset Overview ')
+    st.write( '### 2. High-Level Overview ')
 
     #Creating radio button and sidebar simulataneously
     selected = st.sidebar.radio( "**B) What do you want to know about the data?**", 
@@ -121,7 +142,7 @@ if uploaded_file is not None:
         st.components.v1.html(walker, width=1100, height=800)  # Adjust width and height as needed
 
 else:
-    st.info("Please upload an Excel file to proceed.")
+    st.info("Please upload a file to proceed.")
 
 #Horizontal divider
 st.divider()
