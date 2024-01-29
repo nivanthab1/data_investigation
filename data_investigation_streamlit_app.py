@@ -30,6 +30,8 @@ st.write('<style>' + custom_css + '</style>', unsafe_allow_html=True)
 #Setting markdown
 st.markdown("<h1 style='text-align: center;'>Exploratory Data Analysis App by NivAnalytics</h1>", unsafe_allow_html=True)
 
+st.sidebar.write("**A) File Upload**")
+
 #User prompt to select file type
 ft = st.sidebar.selectbox("*What is the file type?*",["Excel", "csv"])
 
