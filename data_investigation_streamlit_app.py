@@ -11,7 +11,7 @@ import seaborn as sns
 import datetime as dt
 import sys
 
-#Setting the web app page name (optional)
+#Setting the web app page name
 st.set_page_config(page_title='Exploratory Data Analysis App', page_icon=None, layout="wide")
 
 #Injecting custom CSS for assigning theme to app
