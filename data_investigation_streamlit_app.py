@@ -113,7 +113,7 @@ if uploaded_file is not None:
     st.write( '### 2. High-Level Overview ')
 
     #Creating radio button and sidebar simulataneously
-    selected = st.sidebar.radio( "**B) What do you want to know about the data?**", 
+    selected = st.sidebar.radio( "**B) What would you like to know about the data?**", 
                                 ["Data Dimensions",
                                  "Field Descriptions",
                                 "Summary Statistics", 
