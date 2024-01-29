@@ -12,7 +12,7 @@ import datetime as dt
 import sys
 
 #Setting the web app page name (optional)
-st.set_page_config(page_title='Exploratory Data Assistant', page_icon=None, layout="wide")
+st.set_page_config(page_title='Exploratory Data Analysis App', page_icon=None, layout="wide")
 
 #Injecting custom CSS for assigning theme to app
 custom_css = """
@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 st.write('<style>' + custom_css + '</style>', unsafe_allow_html=True)
 
 #Setting markdown
-st.markdown("<h1 style='text-align: center;'>Exploratory Data Assistant App by NivAnalytics</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Exploratory Data Analysis App by NivAnalytics</h1>", unsafe_allow_html=True)
 
 #User prompt to select file type
 ft = st.sidebar.selectbox("*What is the file type?*",["Excel", "csv"])
