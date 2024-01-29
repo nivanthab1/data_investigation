@@ -1,2 +1,2 @@
-# Web application for preliminary exploratory data analysis (EDA) on any Excel file
+# Web application for preliminary exploratory data analysis (EDA) on Excel and csv files.
 # URL: https://data-investigation.streamlit.app
