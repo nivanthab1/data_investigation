@@ -16,7 +16,6 @@ st.set_page_config(page_title='Exploratory Data Analysis App', page_icon=None, l
 
 #Injecting custom CSS for assigning theme to app
 custom_css = """
-/* Example CSS rules */
 body {
   background-color: #FFFFFF;
 }
