@@ -170,4 +170,4 @@ else:
 st.divider()
 
 #My branding
-st.write("**Created by NivAnalytics - https://www.nivanalytics.com/**")
+st.write("**Created by NivAnalytics - https://www.nivanalytics.com**")
