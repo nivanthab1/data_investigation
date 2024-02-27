@@ -131,7 +131,7 @@ if uploaded_file is not None:
         #Adding null counts to summary statistics
         nc = pd.DataFrame(data.isnull().sum()).rename(columns={0: 'count_null'}).T
         ss = pd.concat([nc,ss]).copy()
-        st.dataframe(ss, use_container_width=True,hide_index=True)
+        st.dataframe(ss, use_container_width=True)
 
     #Showing value counts of object fields
     elif selected == 'Value Counts of Fields':
