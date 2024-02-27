@@ -153,7 +153,7 @@ if uploaded_file is not None:
 ## 3. Visualisation
 
     #Selecting whether visualisation is required
-    vis_select = st.sidebar.checkbox("**C) Is visualisation required for this dataset?**")
+    vis_select = st.sidebar.checkbox("**C) Is visualisation required for this dataset (hide sidebar for full view of dashboard) ?**")
 
     if vis_select:
 
