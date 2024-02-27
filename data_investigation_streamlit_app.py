@@ -101,7 +101,7 @@ if uploaded_file is not None:
 
     try:
       #View the dataframe in streamlit
-      st.dataframe(data, use_container_width=True)
+      st.dataframe(data, use_container_width=True,hide_index=True)
 
     except:
       st.info("The file wasn't read properly. Please ensure that the input parameters are correctly defined.")
@@ -123,7 +123,7 @@ if uploaded_file is not None:
     #Showing field types
     if selected == 'Field Descriptions':
         fd = data.dtypes.reset_index().rename(columns={'index':'Field Name',0:'Field Type'}).sort_values(by='Field Type',ascending=False).reset_index(drop=True)
-        st.dataframe(fd, use_container_width=True)
+        st.dataframe(fd, use_container_width=True,hide_index=True)
 
     #Showing summary statistics
     elif selected == 'Summary Statistics':
@@ -131,14 +131,14 @@ if uploaded_file is not None:
         #Adding null counts to summary statistics
         nc = pd.DataFrame(data.isnull().sum()).rename(columns={0: 'count_null'}).T
         ss = pd.concat([nc,ss]).copy()
-        st.dataframe(ss, use_container_width=True)
+        st.dataframe(ss, use_container_width=True,hide_index=True)
 
     #Showing value counts of object fields
     elif selected == 'Value Counts of Fields':
         # creating radio button and sidebar simulataneously if this main selection is made
         sub_selected = st.sidebar.radio( "*Which field should be investigated?*",data.select_dtypes('object').columns)
         vc = data[sub_selected].value_counts().reset_index().rename(columns={'count':'Count'}).reset_index(drop=True)
-        st.dataframe(vc, use_container_width=True)
+        st.dataframe(vc, use_container_width=True,hide_index=True)
 
     #Showing the shape of the dataframe
     else:
@@ -161,7 +161,7 @@ if uploaded_file is not None:
 
         #Creating a PyGWalker Dashboard
         walker = pyg.walk(data, return_html=True)
-        st.components.v1.html(walker, width=1100, height=800)  # Adjust width and height as needed
+        st.components.v1.html(walker, width=1500, height=800)  # Adjust width and height as needed
 
 else:
     st.info("Please upload a file to proceed.")
