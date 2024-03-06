@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5, h6 {
 st.write('<style>' + custom_css + '</style>', unsafe_allow_html=True)
 
 #Setting markdown
-st.markdown("<h1 style='text-align: center;'>Exploratory Data Analysis App by NivAnalytics</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Exploratory Data Analysis App</h1>", unsafe_allow_html=True)
 
 st.sidebar.write("****A) File upload****")
 
