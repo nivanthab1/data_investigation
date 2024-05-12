@@ -21,7 +21,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #FF4B4B;
+  color: #057A27;
 }
 """
 st.write('<style>' + custom_css + '</style>', unsafe_allow_html=True)
