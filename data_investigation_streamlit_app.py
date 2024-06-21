@@ -17,7 +17,7 @@ from PIL import Image
 cwd_dir = os.path.dirname(_file_)
 rel_path = '../images'
 images_path = os.path.join(cwd_dir,rel_path)
-logo = Image.open(images_path + '/Browser Icon Reverse.pdn')
+logo = Image.open(images_path + '/Browser Icon Reverse.png')
 
 #Setting the web app page name
 st.set_page_config(page_title='Exploratory Data Analysis App', page_icon=logo, layout="wide")
