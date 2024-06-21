@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import datetime as dt
 import sys
+import os
 from PIL import Image
 
 #Getting path of images
