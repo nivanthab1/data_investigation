@@ -14,7 +14,7 @@ import os
 from PIL import Image
 
 #Getting path of images
-cwd_dir = os.path.dirname(_file_)
+cwd_dir = os.path.dirname(__file__)
 rel_path = '../images'
 images_path = os.path.join(cwd_dir,rel_path)
 logo = Image.open(images_path + '/Browser Icon Reverse.png')
