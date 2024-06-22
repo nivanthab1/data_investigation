@@ -10,21 +10,20 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import datetime as dt
 import sys
+import os
+from PIL import Image
 
 #Setting the web app page name
 st.set_page_config(page_title='Exploratory Data Analysis App', page_icon=":chart:", layout="wide")
 
-#Injecting custom CSS for assigning theme to app
-custom_css = """
-body {
-  background-color: #FFFFFF;
-}
+#Getting path of images
+cwd_dir = os.path.dirname(__file__)
+rel_path = '../images'
+images_path = os.path.join(cwd_dir,rel_path)
+logo = Image.open(images_path + '/Browser Icon Reverse.png')
 
-h1, h2, h3, h4, h5, h6 {
-  color: #057A27;
-}
-"""
-st.write('<style>' + custom_css + '</style>', unsafe_allow_html=True)
+#Configuring Streamlit page
+st.set_page_config(page_title = 'PDF Encryption',page_icon = logo,layout = "wide")
 
 #Setting markdown
 st.markdown("<h1 style='text-align: center;'>Exploratory Data Analysis App</h1>", unsafe_allow_html=True)
