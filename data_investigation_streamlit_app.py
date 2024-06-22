@@ -13,9 +13,6 @@ import sys
 import os
 from PIL import Image
 
-#Setting the web app page name
-st.set_page_config(page_title='Exploratory Data Analysis App', page_icon=":chart:", layout="wide")
-
 #Getting path of images
 cwd_dir = os.path.dirname(__file__)
 rel_path = './images'
@@ -23,7 +20,7 @@ images_path = os.path.join(cwd_dir,rel_path)
 logo = Image.open(images_path + '/Browser Icon Reverse.png')
 
 #Configuring Streamlit page
-st.set_page_config(page_title = 'PDF Encryption',page_icon = logo,layout = "wide")
+st.set_page_config(page_title = 'Exploratory Data Analysis App',page_icon = logo,layout = "wide")
 
 #Setting markdown
 st.markdown("<h1 style='text-align: center;'>Exploratory Data Analysis App</h1>", unsafe_allow_html=True)
