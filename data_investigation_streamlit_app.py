@@ -12,7 +12,7 @@ import datetime as dt
 import sys
 
 #Setting the web app page name
-st.set_page_config(page_title='Exploratory Data Analysis App', page_icon=":smiley:", layout="wide")
+st.set_page_config(page_title='Exploratory Data Analysis App', page_icon=":chart:", layout="wide")
 
 #Injecting custom CSS for assigning theme to app
 custom_css = """
