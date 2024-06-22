@@ -168,13 +168,6 @@ if uploaded_file is not None:
         #Creating a PyGWalker Dashboard
         walker = pyg.walk(data)
 
-        #Export the Pygwalker object to an HTML string
-        html_content = walker.export_chart_html()
-
-        #Verify the type and content of the HTML string
-        st.write(f"Type of html_content: {type(html_content)}")
-        st.write(html_content[:500])  # Print the first 500 characters of the HTML content
-
         #Render the HTML string in Streamlit
         st.components.v1.html(html_content, width=1250, height=800)
             
