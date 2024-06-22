@@ -166,17 +166,17 @@ if uploaded_file is not None:
         st.write( '### 3. Visual Insights ')
 
         #Creating a PyGWalker Dashboard
-        walker = pyg.walk(data, return_html=True)
+        walker = pyg.walk(data)
 
-        #Verify the type and content of walker
-        st.write(f"Type of walker: {type(walker)}")
-        st.write(walker)
+        #Export the Pygwalker object to an HTML string
+        html_content = walker.export_chart_html()
 
-        #Ensure walker is a string
-        if isinstance(walker, str):
-            st.components.v1.html(walker, width=1250, height=800)
-        else:
-            st.error("Pygwalker did not return an HTML string.")    
+        #Verify the type and content of the HTML string
+        st.write(f"Type of html_content: {type(html_content)}")
+        st.write(html_content[:500])  # Print the first 500 characters of the HTML content
+
+        #Render the HTML string in Streamlit
+        st.components.v1.html(html_content, width=1250, height=800)
             
 else:
     st.info("Please upload a file to proceed.")
