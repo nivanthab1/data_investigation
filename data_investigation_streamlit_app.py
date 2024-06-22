@@ -18,7 +18,7 @@ st.set_page_config(page_title='Exploratory Data Analysis App', page_icon=":chart
 
 #Getting path of images
 cwd_dir = os.path.dirname(__file__)
-rel_path = '../images'
+rel_path = './images'
 images_path = os.path.join(cwd_dir,rel_path)
 logo = Image.open(images_path + '/Browser Icon Reverse.png')
 
