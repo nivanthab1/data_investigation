@@ -22,8 +22,18 @@ logo = Image.open(images_path + '/Browser Icon Reverse.png')
 #Configuring Streamlit page
 st.set_page_config(page_title = 'Exploratory Data Analysis App',page_icon = logo,layout = "wide")
 
-#Setting markdown
-st.markdown("<h1 style='text-align: center;'>Exploratory Data Analysis App</h1>", unsafe_allow_html=True)
+#Creating container with columns for page heading, specific title and logo
+with st.container():
+    col1, col2, padding = st.columns([10,1,1])
+
+    #Setting page header and subheader
+    with col1:
+        st.markdown("### Exploratory Data Analysis App")
+        
+    #Setting logo
+    with col2:
+        niv_logo = Image.open(images_path + '/Social Logo.png')
+        st.image(niv_logo, width=200, output_format='auto')
 
 st.sidebar.write("****A) File upload****")
 
