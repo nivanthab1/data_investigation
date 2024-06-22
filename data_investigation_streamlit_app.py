@@ -165,11 +165,15 @@ if uploaded_file is not None:
 
         st.write( '### 3. Visual Insights ')
 
-        #Creating a PyGWalker Dashboard
-        walker = pyg.walk(data)
+        try:
+            #Creating a PyGWalker Dashboard
+            walker = pyg.walk(data,return_html=True)
 
-        #Render the HTML string in Streamlit
-        st.components.v1.html(html_content, width=1250, height=800)
+            #Render the HTML string in Streamlit
+            st.components.v1.html(walker, width=1250, height=800)
+            
+        except Exception as e:
+            st.error(f"Error occured: {e}")
             
 else:
     st.info("Please upload a file to proceed.")
