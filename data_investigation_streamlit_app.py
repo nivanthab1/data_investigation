@@ -166,10 +166,7 @@ if uploaded_file is not None:
         st.write( '### 3. Visual Insights ')
 
         try:
-            #Creating a PyGWalker Dashboard
-            #walker = pyg.walk(data,return_html=True)
-
-            #Render the HTML string in Streamlit
+            #Creating a PyGWalker Dashboard and rendering the HTML string in Streamlit
             walker_html = pyg.walk(data).to_html()
             st.components.v1.html(walker_html, height=600)
             
