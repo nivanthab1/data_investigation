@@ -167,13 +167,14 @@ if uploaded_file is not None:
 
         try:
             #Creating a PyGWalker Dashboard
-            walker = pyg.walk(data,return_html=True)
+            #walker = pyg.walk(data,return_html=True)
 
             #Render the HTML string in Streamlit
-            st.components.v1.html(walker, width=1250, height=800)
+            walker_html = pyg.walk(data).to_html()
+            st.components.v1.html(walker_html, height=600)
             
         except Exception as e:
-            st.error(f"Error occured: {e}")
+            st.error(f"Error occurred: {e}")
             
 else:
     st.info("Please upload a file to proceed.")
