@@ -168,7 +168,7 @@ if uploaded_file is not None:
         try:
             #Creating a PyGWalker Dashboard and rendering the HTML string in Streamlit
             walker_html = pyg.walk(data).to_html()
-            st.components.v1.html(walker_html, height=600)
+            st.components.v1.html(walker_html, height=1200)
             
         except Exception as e:
             st.error(f"Error occurred: {e}")
